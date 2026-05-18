@@ -15,41 +15,150 @@
         margin: 0;
         padding: 0;
       }
+
       body {
         background-color: rgb(0, 0, 22);
-        color: white; 
-        font-family: 'Poppins', sans-serif;
-      } 
-      nav{
+        color: #ffffff;
+        font-family: "Poppins", sans-serif;
+      }
+
+      nav {
         display: flex;
         justify-content: space-around;
         align-items: center;
         height: 70px;
         background-color: rgb(1, 1, 39);
       }
-      nav ul{
+
+      nav ul {
         display: flex;
         justify-content: center;
       }
-      nav ul li{
+
+      nav ul li {
         list-style: none;
         margin: 0 23px;
       }
+
+      nav ul li a{
+        text-decoration: none;
+        color: #ffffff;
+      }
+
+      nav ul li a:hover{
+        color: #06b6d4;
+        font-size: 1.11rem;
+      }
+
+      /* SECTION */
+
+      .firstSection {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 80px 10%;
+        gap: 50px;
+      }
+
+      /* LEFT SIDE */
+
+      .leftSection {
+        width: 50%;
+      }
+
+      .leftSection h1 {
+        font-size: 3rem;
+        line-height: 1.2;
+      }
+
+      .subtitle {
+        font-size: 2rem;
+        margin: 20px 0;
+        font-weight: bold;
+      }
+
+      .leftSection p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: #d1d1d1;
+      }
+
+      /* NAME COLOR */
+
+      .purple {
+        color: rgb(127, 7, 240);
+      }
+
+      /* RIGHT SIDE */
+
+      .rightSection {
+        width: 45%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .rightSection img {
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+      }
+
+      /* MOBILE RESPONSIVE */
+
+      @media (max-width: 768px) {
+        .firstSection {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .leftSection,
+        .rightSection {
+          width: 100%;
+        }
+
+        .leftSection h1 {
+          font-size: 2.2rem;
+        }
+
+        .subtitle {
+          font-size: 1.5rem;
+        }
+      }
     </style>
   </head>
+
   <body>
     <header>
       <nav>
         <div class="left">Yuvraj Portfolio</div>
         <div class="right"></div>
-            <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Services</li>
-                <li>Projects</li>
-                <li>Contact Me</li>
-            </ul>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/">About</a></li>
+          <li><a href="/">Services</a></li>
+          <li><a href="/">Projects</a></li>
+          <li><a href="/">Contact Me</a></li>
+        </ul>
       </nav>
     </header>
+
+    <main>
+      <section class="firstSection">
+        <div class="leftSection">
+          <h1>Hey, My name is <span class="purple">Yuvraj</span></h1>
+          <h2 class="subtitle">
+            Web Developer | Python Learner | Tech Enthusiast
+          </h2>
+          <p>
+            I design and develop modern web interfaces focused on performance,
+            responsiveness, and clean user experience.
+          </p>
+        </div>
+
+        <div class="rightSection">
+          <img src="title.png" alt="" />
+        </div>
+      </section>
+    </main>
   </body>
 </html>
