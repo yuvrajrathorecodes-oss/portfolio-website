@@ -1,0 +1,151 @@
+ * {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* =========================
+   GLOBAL STYLES
+========================= */
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #050816;
+      color: #ffffff;
+
+      overflow-x: hidden;
+    }
+
+    /* =========================
+   NAVBAR
+========================= */
+
+    nav {
+      width: 100%;
+      height: 80px;
+
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      position: fixed;
+      top: 0;
+
+      background: rgba(255, 255, 255, 0.05);
+
+      backdrop-filter: blur(10px);
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+      z-index: 1000;
+    }
+
+    nav ul{
+    display: flex;
+    gap: 40px;
+}
+
+nav ul li{
+    list-style: none;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    transition: 0.3s ease;
+}
+
+nav ul li a:hover{
+    color: #a855f7;
+}
+
+    /* SECTION */
+
+    .firstSection {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 80px 10%;
+      gap: 50px;
+      margin-top: 80px;
+    }
+
+    /* LEFT SIDE */
+    .leftSection{
+    font-size: 1.3rem;
+    font-weight: 600;
+    width: 50%;
+    color: #ffffff;
+}
+    
+
+    .leftSection h1 {
+      font-size: 3rem;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 2rem;
+      margin: 20px 0;
+      font-weight: bold;
+    }
+
+    .leftSection p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #d1d1d1;
+    }
+
+    /* NAME COLOR */
+
+    .purple {
+      color: rgb(127, 7, 240);
+    }
+
+    /* RIGHT SIDE */
+
+    .rightSection {
+      width: 45%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .rightSection img {
+      width: 100%;
+      max-width: 450px;
+      height: auto;
+    }
+
+    /* MOBILE RESPONSIVE */
+
+    @media (max-width: 768px) {
+      .firstSection {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .leftSection,
+      .rightSection {
+        width: 100%;
+      }
+
+      .leftSection h1 {
+        font-size: 2.2rem;
+      }
+
+      .subtitle {
+        font-size: 1.5rem;
+      }
+    }
+
+    .intro_para {
+      line-height: 1.6;
+    }
+
+    #element {
+      color: #a855f7;
+      margin-top: -10px;
+    }
