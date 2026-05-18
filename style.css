@@ -28,7 +28,6 @@ body {
 /* =========================
    NAVBAR
 ========================= */
-
 nav {
   width: 100%;
   height: 80px;
@@ -36,14 +35,21 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
+
   position: fixed;
   top: 0;
-  background-color: var(--bg-dark);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  background: rgba(10, 10, 10, 0.5);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+
   z-index: 1000;
 }
-
+nav {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
 nav ul {
   display: flex;
   gap: 25px;
@@ -172,4 +178,92 @@ nav ul li a:hover {
   .subtitle {
     font-size: 1.5rem;
   }
+}
+
+.servicesSection {
+  padding: 100px 10%;
+  text-align: center;
+
+  background: linear-gradient(
+    to bottom,
+    #0b0b0f,
+    #111111
+  );
+}
+
+.servicesSection h1 {
+  font-size: 2.6rem;
+  color: var(--primary);
+  margin-bottom: 50px;
+}
+
+.servicesContainer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.serviceBox {
+  background: #0f0f0f;
+  padding: 30px;
+  border-radius: 15px;
+  width: 300px;
+  text-align: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: 0.3s ease;
+}
+
+.serviceBox:hover {
+  transform: translateY(-12px);
+  border-color: var(--primary);
+  box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+}
+
+.serviceBox h2 {
+  color: var(--primary);
+  margin-bottom: 12px;
+  font-size: 1.4rem;
+}
+
+.serviceBox p {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.serviceBox {
+  backdrop-filter: blur(8px);
+}
+
+.servicesSection h1 {
+  font-size: 2.8rem;
+  color: var(--primary);
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.servicesSection h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0%;
+  height: 3px;
+  background: var(--primary);
+  transition: 0.4s ease;
+  border-radius: 5px;
+}
+.servicesSection h1:hover::after {
+  width: 100%;
+}
+.servicesSection h1:hover {
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+  transform: scale(1.05);
+  transition: 0.3s ease;
+}
+.servicesSection h1 {
+  letter-spacing: 1px;
 }
