@@ -11,70 +11,107 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
+  <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
 
 <body>
   <header>
     <nav>
-      <div class="left">Yuvraj Portfolio</div>
-      <div class="right"></div>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/">About</a></li>
-        <li><a href="/">Services</a></li>
-        <li><a href="/">Projects</a></li>
-        <li><a href="/">Contact Me</a></li>
-      </ul>
+      <a href="#" class="left">Portfolio</a>
+      <div class="right">
+        <ul>
+          <li><a href="#" style="--i:1" class="active">Home</a></li>
+          <li><a href="#" style="--i:2">About</a></li>
+          <li><a href="#services" style="--i:3">Services</a></li>
+          <li><a href="#" style="--i:4">Skill</a></li>
+          <li><a href="#" style="--i:5">Projects</a></li>
+          <li><a href="#" style="--i:5">Contact</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
   <main>
-    <section class="firstSection">
-      <div class="leftSection hidden">
-        <h1>Hey, My name is <span class="purple">Yuvraj</span></h1>
+    <section class="homeSection">
+      <div class="home-content">
+        <h1 class="h1">Hey, My name is <span class="purple">Yuvraj</span></h1>
         <span id="element"></span>
         <p class="intro_para">
           I design and develop modern web interfaces focused on performance,
           responsiveness, and clean user experience.
         </p>
+        <!-- <div class="buttons">
+          <button class="btn">Download Resume</button>
+          <button class="btn">Visit GitHub</button>
+        </div> -->
+
+        <div class="home-sci">
+            <a href="#" style="--i:6"><i class='bx bxl-instagram'></i></a>
+            <a href="#" style="--i:7"><i class='bx bxl-linkedin'></i></a>
+            <a href="#" style="--i:8"><i class='bx bxl-whatsapp'></i></a>
+            <a href="#" style="--i:9"><i class='bx bxl-github' ></i></a>
+            <a href="#" style="--i:10"><i class='bx bxl-discord-alt' ></i></a>
+
+        </div>
+        <a href="#" class="btn-box">More About Me</a>
       </div>
       <div class="rightSection hidden">
-        <img src="title.png" alt="" />
+        <img src="title.png" alt="Portfolio Illustration" />
       </div>
     </section>
 
-    <section class="servicesSection">
-      <h1>My Services</h1>
+    <section id="services" class="servicesSection">
+      <h1 class="sectionTitle">My Services</h1>
       <div class="servicesContainer">
-          
         <div class="serviceBox">
+          <i class="fa-solid fa-code"></i>
           <h2>Full Stack Development</h2>
-          <p>I build complete web applications with frontend and backend functionality.</p>
+          <p>
+            I build complete web applications with frontend
+            and backend functionality.
+          </p>
         </div>
-
         <div class="serviceBox">
+          <i class="fa-solid fa-pen-ruler"></i>
           <h2>UI Design</h2>
-          <p>I design clean, modern and user-friendly interfaces for better experience.</p>
+          <p>
+            I design clean, modern and user-friendly interfaces
+            for better experience.
+          </p>
         </div>
-
         <div class="serviceBox">
+          <i class="fa-solid fa-laptop-code"></i>
           <h2>Portfolio Website</h2>
-          <p>Modern responsive portfolio built using HTML, CSS and JS.</p>
+          <p>
+            Modern responsive portfolio built using
+            HTML, CSS and JavaScript.
+          </p>
         </div>
-
+        <div class="serviceBox">
+          <i class="fa-solid fa-photo-film"></i>
+          <h2>Content Creator</h2>
+          <p>
+            I create engaging digital content for social media,
+            including creative posts and audience-focused content.
+          </p>
+        </div>
       </div>
     </section>
+
+
+
+
+
+
+
+
+
 
   </main>
-  <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
-  <!-- Setup and start animation! -->
-  <script>
-    var typed = new Typed('#element', {
-      strings: ['<i>Web Developer</i>', '<i>Python Developer</i>', '<i>IoT Enthusiast</i>', '<i>UI Designer</i>'],
-      typeSpeed: 50,
-    });
-  </script>
+  <script src="script.js"></script>
 
 </body>
 
