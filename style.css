@@ -605,27 +605,82 @@ nav ul li a:hover {
   align-items: flex-start; /* TOP */
 }
 
-.about-img img {
-  width: 320px;
-  height: 320px;
+.about-img img{
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
 
-  object-fit: cover;
+    border: 4px solid #0ef;
 
-  border-radius: 50%;
+    box-shadow:
+    0 0 20px #0ef,
+    0 0 50px rgba(0, 238, 255, 0.4);
 
-  border: 5px solid var(--primary);
+    animation: morphFloat 5s ease-in-out infinite;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
 
-  box-shadow:
-    0 0 25px var(--primary),
-    0 0 60px rgba(56, 189, 248, 0.4);
+/*  HOVER EFFECT */
+.about-img img:hover{
+    transform: scale(1.08) rotate(5deg);
 
-  transition: 0.5s ease;
+    border-color: #fff;
+
+    box-shadow:
+    0 0 30px #0ef,
+    0 0 60px #0ef,
+    0 0 100px rgba(0, 238, 255, 0.8);
+
+    filter: brightness(1.1);
+}
+
+@keyframes morphFloat{
+    0%{
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    25%{
+        transform: translateY(-12px) rotate(2deg);
+    }
+
+    50%{
+        transform: translateY(-20px) rotate(0deg);
+    }
+
+    75%{
+        transform: translateY(-12px) rotate(-2deg);
+    }
+
+    100%{
+        transform: translateY(0px) rotate(0deg);
+    }
 }
 
 /* TEXT RIGHT */
 
-.about-text {
-  width: 55%;
+.about-text h2 {
+  font-size: 60px;
+}
+
+.about-text h2 span {
+  color: #0ef;
+}
+
+.about-text h4 {
+  font-size: 29px;
+  font-weight: 600;
+  color: #fff;
+  list-style: 1.7;
+  margin: 15px 0 30px;
+}
+
+.about-text p {
+  color: aliceblue;
+  font-size: 20px;
+  line-height: 1.4;
+  margin-bottom: 4rem;
 }
 
 /* HOVER EFFECT */
@@ -639,4 +694,11 @@ nav ul li a:hover {
     0 0 120px rgba(56, 189, 248, 0.5);
 
   cursor: pointer;
+}
+
+.about {
+  display: grid;
+  align-items: center;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
 }
