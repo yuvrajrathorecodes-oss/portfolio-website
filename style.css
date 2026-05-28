@@ -167,6 +167,36 @@ nav ul li a:hover {
   }
 }
 
+/* RIGHT SECTION IMAGE */
+.rightSection img {
+  width: 100%;
+  max-width: 400px;
+  animation:
+    slideLeft 1s ease forwards,
+    floatImage 4s ease-in-out infinite;
+  animation-delay: 0s, 1s;
+  opacity: 0;
+  transition: 0.5s ease;
+}
+
+/* HOVER EFFECT */
+.rightSection img:hover {
+  filter: drop-shadow(0 0 20px #00eeff);
+}
+
+/* FLOATING ANIMATION */
+@keyframes floatImage {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
 .right ul a {
   display: inline-block;
   font-size: 25px;
@@ -335,7 +365,6 @@ nav ul li a:hover {
 ========================= */
 
 @media (max-width: 768px) {
-
   /* NAVBAR */
 
   nav {
@@ -557,59 +586,57 @@ nav ul li a:hover {
    ABOUT SECTION
 ========================= */
 
-.about{
-    width: 100%;
-    display: flex;
-    align-items: flex-start;   /* TOP */
-    justify-content: space-between;
+.about {
+  width: 100%;
+  display: flex;
+  align-items: flex-start; /* TOP */
+  justify-content: space-between;
 
-    padding: 120px 10%;
+  padding: 120px 10%;
 }
 
 /* IMAGE LEFT */
 
-.about-img{
-    width: 40%;
+.about-img {
+  width: 40%;
 
-    display: flex;
-    justify-content: flex-start;  /* LEFT */
-    align-items: flex-start;      /* TOP */
+  display: flex;
+  justify-content: flex-start; /* LEFT */
+  align-items: flex-start; /* TOP */
 }
 
-.about-img img{
-    width: 320px;
-    height: 320px;
+.about-img img {
+  width: 320px;
+  height: 320px;
 
-    object-fit: cover;
+  object-fit: cover;
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    border: 5px solid var(--primary);
+  border: 5px solid var(--primary);
 
-    box-shadow:
-        0 0 25px var(--primary),
-        0 0 60px rgba(56, 189, 248, 0.4);
+  box-shadow:
+    0 0 25px var(--primary),
+    0 0 60px rgba(56, 189, 248, 0.4);
 
-    transition: 0.5s ease;
+  transition: 0.5s ease;
 }
 
 /* TEXT RIGHT */
 
-.about-text{
-    width: 55%;
+.about-text {
+  width: 55%;
 }
 
 /* HOVER EFFECT */
 
-.about-img img:hover{
+.about-img img:hover {
+  transform: scale(1.05) translateY(-10px);
 
-    transform: scale(1.05) translateY(-10px);
+  box-shadow:
+    0 0 30px var(--primary),
+    0 0 80px rgba(56, 189, 248, 0.7),
+    0 0 120px rgba(56, 189, 248, 0.5);
 
-    box-shadow:
-        0 0 30px var(--primary),
-        0 0 80px rgba(56, 189, 248, 0.7),
-        0 0 120px rgba(56, 189, 248, 0.5);
-
-    cursor: pointer;
+  cursor: pointer;
 }
-
