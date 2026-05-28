@@ -469,11 +469,11 @@ nav ul li a:hover {
 
   /* SERVICES SECTION */
 
-  .servicesSection {
+  .services {
     padding: 80px 20px;
   }
 
-  .servicesSection h1 {
+  .services h1 {
     font-size: 2.1rem;
   }
 
@@ -498,17 +498,25 @@ nav ul li a:hover {
   }
 }
 
-.servicesSection {
+.services {
   padding: 100px 10%;
   text-align: center;
 
   background: transparent;
 }
 
-.servicesSection h1 {
-  font-size: 2.6rem;
-  color: var(--primary);
-  margin-bottom: 50px;
+.services h1{
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 60px;
+
+    text-align: center;
+
+    position: relative;
+}
+
+.services h1 span{
+    color: #0ef;
 }
 
 .servicesContainer {
@@ -519,68 +527,207 @@ nav ul li a:hover {
 }
 
 .serviceBox {
-  padding: 30px;
-  border-radius: 15px;
-  width: 300px;
-  text-align: center;
-  transition: 0.3s ease;
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+  width: 320px;
+  padding: 35px 30px;
+
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 25px;
+
+  backdrop-filter: blur(15px);
+
+  overflow: hidden;
+
+  transition: 0.5s ease;
+
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 .serviceBox:hover {
-  transform: translateY(-12px);
-  border-color: var(--primary);
-  box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
+  transform: translateY(-15px) scale(1.03);
+
+  border-color: #0ef;
+
+  box-shadow:
+    0 0 25px rgba(0, 238, 255, 0.4),
+    0 0 60px rgba(0, 238, 255, 0.2);
+
+  background: rgba(15, 23, 42, 0.95);
 }
 
-.serviceBox h2 {
-  color: var(--primary);
-  margin-bottom: 12px;
-  font-size: 1.4rem;
+.serviceBox h2{
+    color: #0ef;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
 }
 
-.serviceBox p {
-  color: #ccc;
-  font-size: 0.95rem;
-  line-height: 1.6;
+.serviceBox p{
+    color: #cbd5e1;
+    line-height: 1.8;
+    font-size: 1rem;
 }
 
 .serviceBox {
   backdrop-filter: blur(8px);
 }
 
-.servicesSection h1 {
-  font-size: 2.8rem;
-  color: var(--primary);
-  margin-bottom: 50px;
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
+.serviceBox::before{
+    content: "";
+
+    position: absolute;
+
+    top: -50%;
+    left: -50%;
+
+    width: 200%;
+    height: 200%;
+
+    background:
+    linear-gradient(
+        45deg,
+        transparent,
+        rgba(0,238,255,0.15),
+        transparent
+    );
+
+    transform: rotate(25deg);
+
+    transition: 0.8s;
 }
-.servicesSection h1::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -8px;
-  width: 0%;
-  height: 3px;
-  background: var(--primary);
-  transition: 0.4s ease;
-  border-radius: 5px;
+
+.serviceBox:hover::before{
+    left: 100%;
 }
-.servicesSection h1:hover::after {
-  width: 100%;
+
+.services h1{
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-align: center;
+
+    color: #fff;
+
+    margin-bottom: 70px;
+
+    position: relative;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    animation: glowText 3s ease-in-out infinite;
 }
-.servicesSection h1:hover {
-  text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
-  transform: scale(1.05);
-  transition: 0.3s ease;
+
+/* MY COLOR */
+.services h1 span{
+    color: #0ef;
+
+    text-shadow:
+    0 0 10px #0ef,
+    0 0 25px #0ef,
+    0 0 50px rgba(0,238,255,0.7);
 }
-.servicesSection h1 {
-  letter-spacing: 1px;
+
+/* UNDERLINE EFFECT */
+.services h1::after{
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -15px;
+
+    transform: translateX(-50%);
+
+    width: 120px;
+    height: 4px;
+
+    border-radius: 10px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        #0ef,
+        transparent
+    );
+
+    animation: lineGlow 3s infinite;
 }
+
+/* TEXT GLOW */
+@keyframes glowText{
+    0%{
+        text-shadow: 0 0 10px rgba(0,238,255,0.2);
+    }
+
+    50%{
+        text-shadow:
+        0 0 20px rgba(0,238,255,0.5),
+        0 0 40px rgba(0,238,255,0.3);
+    }
+
+    100%{
+        text-shadow: 0 0 10px rgba(0,238,255,0.2);
+    }
+}
+
+/* LINE ANIMATION */
+@keyframes lineGlow{
+    0%{
+        width: 80px;
+        opacity: 0.5;
+    }
+
+    50%{
+        width: 150px;
+        opacity: 1;
+    }
+
+    100%{
+        width: 80px;
+        opacity: 0.5;
+    }
+}
+
+/* HEADING HOVER EFFECT */
+.services h1:hover{
+    transform: scale(1.05);
+
+    letter-spacing: 4px;
+
+    color: #0ef;
+
+    transition: 0.5s ease;
+
+    text-shadow:
+    0 0 15px #0ef,
+    0 0 35px #0ef,
+    0 0 70px rgba(0,238,255,0.8);
+}
+
+/* UNDERLINE HOVER */
+.services h1:hover::after{
+    width: 220px;
+
+    height: 5px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        #fff,
+        #0ef,
+        #fff,
+        transparent
+    );
+
+    transition: 0.5s ease;
+}
+
+
+
+
+
 
 /* =========================
    ABOUT SECTION
@@ -605,57 +752,57 @@ nav ul li a:hover {
   align-items: flex-start; /* TOP */
 }
 
-.about-img img{
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    object-fit: cover;
+.about-img img {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: cover;
 
-    border: 4px solid #0ef;
+  border: 4px solid #0ef;
 
-    box-shadow:
+  box-shadow:
     0 0 20px #0ef,
     0 0 50px rgba(0, 238, 255, 0.4);
 
-    animation: morphFloat 5s ease-in-out infinite;
-    transition: 0.5s ease;
-    cursor: pointer;
+  animation: morphFloat 5s ease-in-out infinite;
+  transition: 0.5s ease;
+  cursor: pointer;
 }
 
 /*  HOVER EFFECT */
-.about-img img:hover{
-    transform: scale(1.08) rotate(5deg);
+.about-img img:hover {
+  transform: scale(1.08) rotate(5deg);
 
-    border-color: #fff;
+  border-color: #fff;
 
-    box-shadow:
+  box-shadow:
     0 0 30px #0ef,
     0 0 60px #0ef,
     0 0 100px rgba(0, 238, 255, 0.8);
 
-    filter: brightness(1.1);
+  filter: brightness(1.1);
 }
 
-@keyframes morphFloat{
-    0%{
-        transform: translateY(0px) rotate(0deg);
-    }
+@keyframes morphFloat {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
 
-    25%{
-        transform: translateY(-12px) rotate(2deg);
-    }
+  25% {
+    transform: translateY(-12px) rotate(2deg);
+  }
 
-    50%{
-        transform: translateY(-20px) rotate(0deg);
-    }
+  50% {
+    transform: translateY(-20px) rotate(0deg);
+  }
 
-    75%{
-        transform: translateY(-12px) rotate(-2deg);
-    }
+  75% {
+    transform: translateY(-12px) rotate(-2deg);
+  }
 
-    100%{
-        transform: translateY(0px) rotate(0deg);
-    }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
 }
 
 /* TEXT RIGHT */
