@@ -842,28 +842,196 @@ nav ul li a:hover {
 /* SKILL SECTION */
 
 .skillsSection {
+  width: 100%;
+  min-height: 100vh;
+
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+
+  gap: 40px;
+
+  flex-wrap: nowrap;
+
+  padding: 40px 6%;
+
+  box-sizing: border-box;
 }
+
+/* CONTAINER */
 
 .container1 {
-  width: 100%;
-  max-width: 600px;
-
-  min-height: 500px;
-  height: auto;
-
-  padding: 75px 90px;
-
-  margin: auto;
+  width: 50%;
+  padding: 20px 35px;
 }
 
+/* TITLE KE NICHE HEADINGS */
+
 .heading1 {
+  font-size: 28px;
+  margin-bottom: 35px;
+}
+
+/* TECHNICAL SKILLS GAP */
+
+.Technical-bars .bar {
+  margin: 18px 0;
+}
+
+/* ICON SIZE */
+
+.bar i {
+  font-size: 30px;
+  margin-right: 8px;
+}
+
+/* RADIAL GAP */
+
+.radial-bars {
+  gap: 35px;
+  margin-top: 20px;
+}
+
+.sub-skilltitle {
   text-align: center;
-  text-decoration: underline;
-  text-underline-offset: 10px;
-  text-decoration-thickness: 5px;
+
+  font-size: 55px;
+  font-weight: 700;
+
+  color: #fff;
+
+  margin-top: 40px;
+  margin-bottom: 30px;
+
+  letter-spacing: 2px;
+
+  position: relative;
+
+  text-transform: uppercase;
+
+  transition: 0.4s ease;
+
+  cursor: pointer;
+
+  animation: glowText 2s ease-in-out infinite alternate;
+}
+
+/* HOVER EFFECT */
+
+.sub-skilltitle:hover {
+  transform: scale(1.05) translateY(-4px);
+
+  letter-spacing: 4px;
+
+  text-shadow:
+    0 0 10px #0ef,
+    0 0 20px #0ef,
+    0 0 40px #0ef,
+    0 0 80px rgba(0, 238, 255, 0.8);
+}
+
+/* Highlight Word */
+
+.sub-skilltitle span {
+  color: #0ef;
+
+  transition: 0.4s ease;
+
+  text-shadow:
+    0 0 10px #0ef,
+    0 0 20px #0ef;
+}
+
+/* Span Hover */
+
+.sub-skilltitle:hover span {
+  color: #fff;
+
+  text-shadow:
+    0 0 20px #fff,
+    0 0 40px #0ef,
+    0 0 60px #0ef;
+}
+
+/* Underline */
+
+.sub-skilltitle::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -12px;
+
+  transform: translateX(-50%);
+
+  width: 120px;
+  height: 4px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(90deg, #0ef, #00bcd4);
+
+  transition: 0.4s ease;
+
+  box-shadow:
+    0 0 10px #0ef,
+    0 0 20px #0ef;
+}
+
+/* Underline Hover */
+
+.sub-skilltitle:hover::after {
+  width: 180px;
+
+  box-shadow:
+    0 0 20px #0ef,
+    0 0 40px #0ef;
+}
+
+/* HEADING */
+
+.heading1 {
+  position: relative;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
   margin-bottom: 50px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+
+
+/* Gradient Highlight */
+
+.heading1 span {
+  color: #0ef;
+
+  text-shadow: 0 0 5px rgba(0, 238, 255, 0.5);
+}
+
+/* Animated Underline */
+
+.heading1::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -12px;
+
+  transform: translateX(-50%);
+
+  width: 80px;
+  height: 4px;
+
+  border-radius: 10px;
+
+  background: linear-gradient(90deg, #0ef, #00bcd4);
+
+  box-shadow: 0 0 10px rgba(0, 238, 255, 0.5);
 }
 
 .bar {
@@ -872,6 +1040,9 @@ nav ul li a:hover {
 
 .Technical-bars .bar {
   margin: 35px 0;
+  position: relative;
+  padding-top: 18px;
+  overflow: hidden;
 }
 
 .Technical-bars .bar .info {
@@ -903,11 +1074,8 @@ nav ul li a:hover {
   border-radius: 50px;
   transform: scaleX(0);
   transform-origin: left;
-
   animation: animateBar 1.5s cubic-bezier(1, 0, 0.5, 1) forwards;
-
   background: linear-gradient(90deg, #00f0ff, #0ef, #00bcd4);
-
   box-shadow:
     0 0 10px #0ef,
     0 0 20px #0ef,
@@ -923,10 +1091,8 @@ nav ul li a:hover {
   left: -100%;
   width: 50%;
   height: 100%;
-
   background: rgba(255, 255, 255, 0.4);
   transform: skewX(-20deg);
-
   animation: shine 2s infinite;
 }
 
@@ -1002,59 +1168,32 @@ nav ul li a:hover {
 ========================= */
 
 .Technical-bars .bar .progress-line {
-  overflow: hidden;
+  overflow: visible;
+  position: relative;
 }
 
 .Technical-bars .bar .progress-line span {
   position: relative;
+  display: block;
+  height: 100%;
 }
 
-/* Bubble */
 
-.Technical-bars .bar .progress-line span::before {
-  position: absolute;
-  top: -32px;
-  right: 0;
-
-  background: #000;
-  color: #fff;
-
-  font-size: 12px;
-  font-weight: bold;
-
-  padding: 4px 8px;
-  border-radius: 10px;
-
-  opacity: 0;
-
-  animation: showText 0.5s 1.5s linear forwards;
+.progress-line small{
+    position: absolute;
+    top: -28px;
+    right: 0;
+    color: #fff;
+    background: #081b29;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 8px;
+    z-index: 100;
+    opacity: 0;
+    animation: showText 0.5s 1.5s linear forwards;
 }
 
-/* Percentage Values */
-
-.progress-line.html span::before {
-  content: "90%";
-}
-
-.progress-line.css span::before {
-  content: "80%";
-}
-
-.progress-line.javascript span::before {
-  content: "65%";
-}
-
-.progress-line.python span::before {
-  content: "85%";
-}
-
-.progress-line.react span::before {
-  content: "60%";
-}
-
-.progress-line.nodejs span::before {
-  content: "75%";
-}
 
 /* Animation */
 
@@ -1063,6 +1202,58 @@ nav ul li a:hover {
     opacity: 1;
   }
 }
+
+/* SUB HEAD ANIMATION */
+
+.heading1 {
+  transition: 0.4s ease;
+
+  cursor: pointer;
+
+  animation: floatHeading 3s ease-in-out infinite;
+}
+
+/* HOVER EFFECT */
+
+.heading1:hover {
+  transform: translateY(-5px) scale(1.03);
+
+  letter-spacing: 2px;
+
+  text-shadow:
+    0 0 10px #0ef,
+    0 0 20px #0ef,
+    0 0 40px rgba(0, 238, 255, 0.7);
+}
+
+/* UNDERLINE HOVER */
+
+.heading1:hover::after {
+  width: 120px;
+
+  box-shadow:
+    0 0 15px #0ef,
+    0 0 30px #0ef;
+}
+
+/* FLOATING EFFECT */
+
+@keyframes floatHeading {
+
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
 /* =========================
    PROFESSIONAL RADIAL BARS
 ========================= */
@@ -1078,25 +1269,17 @@ nav ul li a:hover {
 }
 
 /* Single Card */
-
 .radial-bars .radial-bar {
   position: relative;
+
   width: 180px;
-  height: 220px;
+  height: 180px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  border-radius: 20px;
-
-  background: rgba(255, 255, 255, 0.05);
-
-  backdrop-filter: blur(10px);
-
-  box-shadow:
-    0 0 10px rgba(0, 238, 255, 0.2),
-    inset 0 0 10px rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
 
   transition: 0.4s ease;
 }
@@ -1104,12 +1287,7 @@ nav ul li a:hover {
 /* Hover Effect */
 
 .radial-bars .radial-bar:hover {
-  transform: translateY(-10px) scale(1.03);
-
-  box-shadow:
-    0 0 20px #0ef,
-    0 0 40px rgba(0, 238, 255, 0.5),
-    0 0 60px rgba(0, 238, 255, 0.3);
+  transform: translateY(-6px) scale(1.05);
 }
 
 /* SVG */
@@ -1142,70 +1320,61 @@ nav ul li a:hover {
 
 /* Animated Circle */
 
-.path{
-    stroke-width: 12;
-    stroke: #0ef;
+.path {
+  stroke-width: 12;
+  stroke: #0ef;
 
-    fill: transparent;
+  fill: transparent;
 
-    stroke-dasharray: 502;
-    stroke-linecap: round;
+  stroke-dasharray: 502;
+  stroke-linecap: round;
 
-    animation:
-    progress 2s ease-in-out forwards,
-    rotateGlow 4s linear infinite;
+  animation:
+    progress 2s ease-in-out forwards;
 
-    filter:
-    drop-shadow(0 0 10px #0ef)
-    drop-shadow(0 0 20px #0ef);
+ filter: drop-shadow(0 0 6px #0ef);
 }
 
 /* Individual Progress */
 
-.path-1{
-    stroke-dashoffset: 50;
+.path-1 {
+  stroke-dashoffset: 50;
 }
 
-.path-2{
-    stroke-dashoffset: 120;
+.path-2 {
+  stroke-dashoffset: 120;
 }
 
-.path-3{
-    stroke-dashoffset: 90;
+.path-3 {
+  stroke-dashoffset: 90;
 }
 
-.path-4{
-    stroke-dashoffset: 160;
+.path-4 {
+  stroke-dashoffset: 160;
 }
 
 /* Smooth Fill Animation */
 
-@keyframes progress{
-    0%{
-        stroke-dasharray: 0 502;
-    }
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 502;
+  }
 }
 
 /* Rotating Glow Effect */
 
-@keyframes rotateGlow{
-    0%{
-        filter:
-        drop-shadow(0 0 5px #0ef)
-        drop-shadow(0 0 10px #0ef);
-    }
+@keyframes rotateGlow {
+  0% {
+    filter: drop-shadow(0 0 5px #0ef) drop-shadow(0 0 10px #0ef);
+  }
 
-    50%{
-        filter:
-        drop-shadow(0 0 20px #0ef)
-        drop-shadow(0 0 40px #0ef);
-    }
+  50% {
+    filter: drop-shadow(0 0 20px #0ef) drop-shadow(0 0 40px #0ef);
+  }
 
-    100%{
-        filter:
-        drop-shadow(0 0 5px #0ef)
-        drop-shadow(0 0 10px #0ef);
-    }
+  100% {
+    filter: drop-shadow(0 0 5px #0ef) drop-shadow(0 0 10px #0ef);
+  }
 }
 /* Percentage Number */
 
@@ -1227,26 +1396,21 @@ nav ul li a:hover {
 
 .radial-bar .text {
   position: absolute;
-  bottom: 20px;
-
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
   font-size: 18px;
   font-weight: 500;
-
   color: #fff;
-
   letter-spacing: 1px;
 }
 
 
-
-
-
-
-
-
-
-
-
+.radial-bars {
+  gap: 70px;
+}
 
 
 
