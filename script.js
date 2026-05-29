@@ -41,3 +41,19 @@ window.addEventListener("scroll", () => {
     contactSection.style.transform = "translateY(0)";
   }
 });
+
+
+
+
+
+
+const contact = document.querySelector(".contact");
+
+window.addEventListener("scroll", () => {
+  const top = contact.getBoundingClientRect().top;
+  const windowHeight = window.innerHeight;
+
+  if (top < windowHeight - 100) {
+    contact.classList.add("show");
+  }
+});
