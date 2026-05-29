@@ -273,56 +273,202 @@ nav ul li a:hover {
 
 /* TITLE ICONS  */
 
-.home-sci a {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  background: transparent;
-  text-decoration: none;
-  border-radius: 50%;
-  font-size: 20px;
-  margin: 30px 15px 30px 0;
-  border: 2px solid #0ef;
-  color: #0ef;
-  opacity: 0;
-  animation: slideLeft 1s ease forwards;
-  animation-delay: calc(0.2s * var(--i));
+.home-sci {
+  margin-top: 25px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
+/* ICON BOX */
+.home-sci a {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 238, 255, 0.25);
+
+  color: #0ef;
+  font-size: 20px;
+
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.35s ease;
+  transform-style: preserve-3d;
+}
+
+/* HOVER EFFECT (3D FLOAT + GLOW) */
 .home-sci a:hover {
-  background: #0ef;
-  color: #081b29;
+  transform: translateY(-8px) scale(1.1) rotate(-5deg);
   box-shadow: 0 0 20px #0ef;
+  color: #000;
+  background: #0ef;
+}
+
+/* ICON POP ANIMATION */
+.home-sci a i {
+  transition: 0.3s ease;
+}
+
+.home-sci a:hover i {
+  transform: scale(1.2);
+}
+
+/* SOFT PULSE BORDER */
+.home-sci a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  border: 2px solid #0ef;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.home-sci a:hover::before {
+  opacity: 1;
+  transform: scale(1.15);
+}
+.btn-box {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 28px;
+
+  font-size: 16px;
+  font-weight: 600;
+  color: #0ef;
+
+  border: 2px solid #0ef;
+  border-radius: 10px;
+
+  background: transparent;
+  cursor: pointer;
+
+  position: relative;
+  overflow: hidden;
+
+  transition: all 0.35s ease;
+  text-decoration: none;
+}
+
+/* HOVER EFFECT (FILL + GLOW + LIFT) */
+.btn-box:hover {
+  color: #000;
+  background: #0ef;
+  box-shadow: 0 0 20px #0ef;
+  transform: translateY(-5px) scale(1.05);
+}
+
+/* ANIMATED SHINE EFFECT */
+.btn-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.btn-box:hover::before {
+  left: 100%;
+}
+
+.home-sci a {
+  transition: all 0.3s ease;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+/* each icon delay */
+.home-sci a:nth-child(1) { animation-delay: 0s; }
+.home-sci a:nth-child(2) { animation-delay: 0.2s; }
+.home-sci a:nth-child(3) { animation-delay: 0.4s; }
+.home-sci a:nth-child(4) { animation-delay: 0.6s; }
+.home-sci a:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes floatIcon {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
 }
 
 .btn-box {
-  display: inline-block;
-  padding: 12px 28px;
-  background: #0ef;
-  border-radius: 40px;
-  font-size: 15px;
-  color: #081b29;
-  letter-spacing: 1px;
-  text-decoration: none;
-  font-weight: 600;
-  opacity: 0;
-  animation: slideTop 2s ease forwards;
-  animation-delay: 2s;
-  box-shadow:
-    0 0 5px #0ef,
-    0 0 25px #0ef;
+  position: relative;
+  overflow: hidden;
+  transition: 0.3s ease;
 }
 
+/* floating effect */
 .btn-box:hover {
-  box-shadow:
-    0 0 5px cyan,
-    0 0 25px cyan,
-    0 0 50px cyan,
-    0 0 100px cyan,
-    0 0 200px cyan;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 20px #0ef;
 }
+
+/* glowing pulse animation */
+.btn-box::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #0ef;
+  opacity: 0;
+  z-index: -1;
+  transition: 0.3s;
+}
+
+.btn-box:hover::after {
+  opacity: 0.2;
+}
+
+h1, h2, h4, p {
+  animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* NAME COLOR */
 
@@ -1002,8 +1148,6 @@ nav ul li a:hover {
   text-transform: uppercase;
 }
 
-
-
 /* Gradient Highlight */
 
 .heading1 span {
@@ -1178,22 +1322,20 @@ nav ul li a:hover {
   height: 100%;
 }
 
-
-.progress-line small{
-    position: absolute;
-    top: -28px;
-    right: 0;
-    color: #fff;
-    background: #081b29;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 4px 8px;
-    border-radius: 8px;
-    z-index: 100;
-    opacity: 0;
-    animation: showText 0.5s 1.5s linear forwards;
+.progress-line small {
+  position: absolute;
+  top: -28px;
+  right: 0;
+  color: #fff;
+  background: #081b29;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 8px;
+  z-index: 100;
+  opacity: 0;
+  animation: showText 0.5s 1.5s linear forwards;
 }
-
 
 /* Animation */
 
@@ -1239,7 +1381,6 @@ nav ul li a:hover {
 /* FLOATING EFFECT */
 
 @keyframes floatHeading {
-
   0% {
     transform: translateY(0px);
   }
@@ -1252,7 +1393,6 @@ nav ul li a:hover {
     transform: translateY(0px);
   }
 }
-
 
 /* =========================
    PROFESSIONAL RADIAL BARS
@@ -1329,10 +1469,9 @@ nav ul li a:hover {
   stroke-dasharray: 502;
   stroke-linecap: round;
 
-  animation:
-    progress 2s ease-in-out forwards;
+  animation: progress 2s ease-in-out forwards;
 
- filter: drop-shadow(0 0 6px #0ef);
+  filter: drop-shadow(0 0 6px #0ef);
 }
 
 /* Individual Progress */
@@ -1407,185 +1546,307 @@ nav ul li a:hover {
   letter-spacing: 1px;
 }
 
-
 .radial-bars {
   gap: 70px;
 }
 
-.main-text{
-  padding-top: 130px;
-  margin-top: 200px;
-}
+/* PROJECT SECTION  */
 
-.main-text h2{
-  font-size: 60px;
-  line-height: 1;
+.main-text {
   text-align: center;
-
+  margin-top: 120px;
+  margin-bottom: 40px;
+  position: relative;
 }
 
-.main-text h2 span{
+/* TITLE STYLE */
+.main-text h2 {
+  font-size: 52px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+}
+.main-text h2 {
+  position: relative;
+  display: inline-block;
+  transition: 0.2s ease;
+}
+
+/* underline */
+.main-text h2::after {
+  content: "";
+  width: 0%;
+  height: 4px;
+  background: #0ef;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -12px;
+  border-radius: 10px;
+  transition: 0.4s ease;
+  box-shadow: 0 0 15px #0ef;
+}
+
+/* hover effect */
+.main-text h2:hover {
+  transform: scale(1.08);
+  text-shadow: 0 0 12px #0ef;
+}
+
+.main-text h2:hover::after {
+  width: 120px;
+}
+
+/* highlight span */
+.main-text h2 span {
   color: #0ef;
 }
 
-.portfolio-content{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(359px,auto));
+/* underline glow effect */
+.main-text h2::after {
+  content: "";
+  width: 120px;
+  height: 4px;
+  background: #0ef;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -12px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #0ef;
 }
 
-.row{
+/* small top label (optional pro touch) */
+.main-text::before {
+  content: "My Work";
+  display: block;
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #aaa;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+/* GRID FIX */
+.portfolio-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+  padding: 0 20px;
+}
+
+/* CARD */
+.row {
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+  /* 3D SETUP */
+  transform-style: preserve-3d;
+  perspective: 1000px;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.row img{
-  width: 100%;
-  border-radius: 8px;
-  display: block;
-  transition: transform 0.5s;
+.row:hover {
+  transform: rotateX(8deg) rotateY(-8deg) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 238, 255, 0.25);
 }
-.layer{
+
+/* IMAGE */
+.row img {
   width: 100%;
-  height: 0;
-  background: linear-gradient(rgba(0,0,0,0.1),#0ef);
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+
+  /* gives depth */
+  transform: translateZ(0);
+}
+
+.row:hover img {
+  transform: scale(1.1) translateZ(20px);
+}
+
+/* OVERLAY */
+.layer {
   position: absolute;
-  border-radius: 8px;
   left: 0;
   bottom: 0;
+  width: 100%;
+  height: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 238, 255, 0.3)
+  );
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 0 40px;
-  transition: height 0.5s;
+  padding: 20px;
+  transition: height 0.4s ease;
+  transform-style: preserve-3d;
+  transition:
+    height 0.4s ease,
+    transform 0.4s ease;
 }
 
-.layer h5{
+.row:hover .layer {
+  height: 100%;
+  transform: translateZ(30px);
+}
+
+.layer h5 {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.layer p {
+  color: #ddd;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 0 10px;
+}
+
+/* ICON BUTTON */
+.layer a {
+  margin-top: 15px;
+  background: #0ef;
   color: #000;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 15px;
-}
-
-.layer p{
-  color: #000;
-  font-size: 1rem;
-  line-height: 1.8;
-}
-
-.layer i{
-  color: #ff004f;
-  margin-top: 20px;
-  font-size: 20px;
-  background: #fff;
-  width: 60px;
-  height: 60px;
+  width: 45px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 50%;  
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 20px;
+  transition: 0.3s;
 }
 
-.row:hover img{
+.layer a:hover {
   transform: scale(1.1);
+  background: #00c2d1;
 }
-.row:hover .layer{
-  height: 100%;
-}
-
-.contact{
+.contact {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: 1fr;
   align-items: center;
-  gap: 3rem;
-  padding-left: 30px;
-  margin-top: 130px;
-
-}
-
-.contact-text h2{
-  font-size: 90px;
-  line-height: 1;
+  padding: 100px 10%;
+  margin-top: 100px;
   text-align: center;
-
-
 }
 
-.contact-text h2 span{
-  color: #0ef;
-}
-
-.contact-text h4{
-  margin: 15px 0;
-  color: rgb(288, 288, 288);
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.contact-text p{
-  color: rgb(177, 177, 177);
-  font-size: 20px;
-  line-height: 30px;
-  margin-bottom: 2rem;
-}
-.contact-list {
-  margin-bottom: 3rem;
-}
-.contact-list li{
+/* TITLE */
+.contact-title {
+  font-size: 70px;
+  font-weight: 800;
   margin-bottom: 10px;
-  display: block;
-}
-.contact-list i{
-  display: inline-block;
-  color: #0ef;
-  font-size: 20px;
-  font-weight: 600;
-  transition: all .40s ease;
+  position: relative;
 }
 
-.contact-list li a:hover{
-  transform: scale(1.01) translate(-5px);
+.contact-title span {
   color: #0ef;
 }
-.contact-icons i{
-  display: inline-flex;
+
+/* SUBTITLE */
+.contact-subtitle {
+  font-size: 22px;
+  color: #ddd;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* PARAGRAPH */
+.contact-para {
+  font-size: 18px;
+  color: #aaa;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+/* LIST */
+.contact-list {
+  margin-bottom: 30px;
+}
+
+.contact-list li {
+  list-style: none;
+  margin: 10px 0;
+  font-size: 18px;
+  color: #ccc;
+}
+
+.contact-list i {
+  color: #0ef;
+  margin-right: 10px;
+}
+
+/* ICONS */
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.contact-icons .icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
-  background: transparent;
-  border: 2px solid #0ef;
-  border-radius: 50%;
-  font-size: 20px;
+  border-radius: 12px; /* square rounded look */
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 238, 255, 0.3);
   color: #0ef;
-  text-decoration: none;
-  margin: 30px 15px 30px 0;
-  transition: .5s ease;
-  animation: slideLeft 1s ease forwards;
-  animation-delay: calc(.2s * var(--i));
+  font-size: 22px;
+  transition: 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
-.contact-icons i:hover{
+
+/* hover lift + glow */
+.contact-icons .icon:hover {
+  transform: translateY(-6px) scale(1.1);
   background: #0ef;
   color: #000;
   box-shadow: 0 0 20px #0ef;
 }
 
+/* individual hover colors (optional pro touch) */
+.contact-icons .instagram:hover {
+  background: #e1306c;
+  color: #fff;
+}
+.contact-icons .linkedin:hover {
+  background: #0077b5;
+  color: #fff;
+}
+.contact-icons .github:hover {
+  background: #333;
+  color: #fff;
+}
+.contact-icons .twitter:hover {
+  background: #1da1f2;
+  color: #fff;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.contact {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease;
+}

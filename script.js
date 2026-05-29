@@ -17,3 +17,27 @@ window.addEventListener("scroll", () => {
       backDelay:1000,
       loop:true
     });
+
+
+const title = document.querySelector(".main-text h2");
+
+document.addEventListener("mousemove", (e) => {
+  let x = (window.innerWidth / 2 - e.clientX) / 25;
+  let y = (window.innerHeight / 2 - e.clientY) / 25;
+
+  title.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
+});
+
+
+
+const contactSection = document.querySelector(".contact");
+
+window.addEventListener("scroll", () => {
+  let position = contactSection.getBoundingClientRect().top;
+  let screenPosition = window.innerHeight / 1.3;
+
+  if (position < screenPosition) {
+    contactSection.style.opacity = "1";
+    contactSection.style.transform = "translateY(0)";
+  }
+});
