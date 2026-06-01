@@ -1853,50 +1853,100 @@ h1, h2, h4, p {
 
 /* MOBILE RESPONSIVE */
 
-/* NAVBAR */
-
 @media (max-width: 768px) {
+
+  /* NAVBAR */
   nav {
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 10px;
     height: auto;
-    padding: 15px;
+    gap: 15px;
+  }
+
+  .left {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
   }
 
   nav ul {
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
+    padding: 0;
+  }
+
+  nav ul li {
+    list-style: none;
   }
 
   nav ul li a {
-    font-size: 14px;
+    font-size: 1rem;
   }
-}
 
-/* HOMESECTION  */
-
-@media (max-width: 768px) {
+  /* HOME SECTION */
   .homeSection {
     flex-direction: column;
-    height: auto;
     text-align: center;
-    padding: 220px 20px 50px;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px 50px;
+    gap: 30px;
+    min-height: auto;
   }
 
-  .rightSection,
-  .home-content {
+  .home-content,
+  .rightSection {
     width: 100%;
   }
 
-  #element {
-    font-size: 22px;
+  .home-content h1 {
+    font-size: 2.5rem;
+    line-height: 1.3;
   }
 
   .purple {
-    font-size: 32px;
+    font-size: 3rem;
+  }
+
+  #element {
+    font-size: 1.8rem;
+    display: block;
+    margin-top: 10px;
+  }
+
+  .intro_para {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-top: 20px;
+  }
+
+  .home-sci {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .home-sci a {
+    width: 55px;
+    height: 55px;
+  }
+
+  .btn-box {
+    margin-top: 25px;
+  }
+
+  .rightSection img {
+    width: 90%;
+    max-width: 400px;
+    height: auto;
   }
 }
-
 /* PROJECT    */
 
 @media (max-width: 768px) {
