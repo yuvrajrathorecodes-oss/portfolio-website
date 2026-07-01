@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TaskFlow  — Premium To-Do List</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+<!-- Styles -->
+<link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="dark">
+
+  <!-- Animated gradient background -->
+  <div class="bg-decor" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+
+  <!-- Loading screen -->
+  <div id="loader" class="loader" aria-hidden="true">
+    <div class="loader-ring"></div>
+    <p>Loading your day…</p>
+  </div>
+
+  <!-- Toast container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <div class="app-shell">
+
+    <!-- ===== HEADER ===== -->
+    <header class="app-header fade-in">
+      <div class="header-top">
+        <div class="brand">
+          <span class="brand-icon"><i class="fa-solid fa-layer-group"></i></span>
+          <div>
+            <h1>TaskFlow </h1>
+            <p class="brand-sub">Your day, beautifully organized</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <div class="datetime" id="datetime">
+            <i class="fa-regular fa-clock"></i>
+            <span id="timeText">--:--</span>
+          </div>
+          <button id="themeToggle" class="icon-btn" title="Toggle theme" aria-label="Toggle dark and light mode">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+        </div>
+      </div>
+
+      <p class="quote" id="quoteText">
+        <i class="fa-solid fa-quote-left"></i>
+        <span>Loading a little inspiration…</span>
+      </p>
+    </header>
+
+    <!-- ===== MAIN CARD ===== -->
+    <main class="main-card slide-up">
+
+      <!-- Add task -->
+      <section class="add-task-section">
+        <div class="input-row">
+          <div class="input-wrap">
+            <i class="fa-solid fa-pen"></i>
+            <input type="text" id="taskInput" placeholder="Add a new task..." maxlength="120" autocomplete="off" />
+          </div>
+          <button id="addBtn" class="btn-primary ripple">
+            <i class="fa-solid fa-plus"></i>
+            <span>Add Task</span>
+          </button>
+        </div>
+
+        <!-- Extra fields for new task -->
+        <div class="input-extras">
+          <label class="field">
+            <span>Due date</span>
+            <input type="date" id="taskDate" />
+          </label>
+          <label class="field">
+            <span>Category</span>
+            <select id="taskCategory">
+              <option value="Personal">Personal</option>
+              <option value="Work">Work</option>
+              <option value="Study">Study</option>
+              <option value="Health">Health</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Priority</span>
+            <select id="taskPriority">
+              <option value="Low">Low</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="High">High</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <!-- Search -->
+      <section class="search-section">
+        <div class="input-wrap search-wrap">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchInput" placeholder="Search tasks instantly..." autocomplete="off" />
+        </div>
+
+        <div class="sort-wrap">
+          <i class="fa-solid fa-arrow-down-wide-short"></i>
+          <select id="sortSelect" aria-label="Sort tasks">
+            <option value="created">Sort: Newest</option>
+            <option value="date">Sort: Due Date</option>
+            <option value="priority">Sort: Priority</option>
+            <option value="alpha">Sort: A–Z</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Filters -->
+      <section class="filter-section">
+        <div class="filter-tabs" role="tablist">
+          <button class="filter-btn active" data-filter="all" role="tab">All</button>
+          <button class="filter-btn" data-filter="active" role="tab">Active</button>
+          <button class="filter-btn" data-filter="completed" role="tab">Completed</button>
+        </div>
+        <button id="clearCompletedBtn" class="btn-ghost">
+          <i class="fa-solid fa-broom"></i> Clear Completed
+        </button>
+      </section>
+
+      <!-- Progress -->
+      <section class="progress-section">
+        <div class="progress-info">
+          <span id="progressLabel">0% complete</span>
+          <span id="progressCount">0 / 0 tasks</span>
+        </div>
+        <div class="progress-track">
+          <div id="progressBar" class="progress-fill"></div>
+        </div>
+        <div class="stats-row">
+          <div class="stat-chip">
+            <i class="fa-solid fa-list-check"></i>
+            <span id="remainingCount">0</span> remaining
+          </div>
+          <div class="stat-chip success">
+            <i class="fa-solid fa-circle-check"></i>
+            <span id="completedCount">0</span> completed
+          </div>
+        </div>
+      </section>
+
+      <!-- Task list -->
+      <section class="task-list-section">
+        <ul id="taskList" class="task-list"></ul>
+
+        <!-- Empty state -->
+        <div id="emptyState" class="empty-state">
+          <div class="empty-illustration">
+            <i class="fa-regular fa-circle-check"></i>
+          </div>
+          <h3>All clear!</h3>
+          <p>Add a task above and watch this space come to life.</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="app-footer fade-in">
+      <p>Crafted with <i class="fa-solid fa-heart"></i> — TaskFlow  Todo · Your data stays on this device</p>
+    </footer>
+  </div>
+
+  <!-- Floating Action Button -->
+  <button id="fab" class="fab ripple" aria-label="Add task quickly">
+    <i class="fa-solid fa-plus"></i>
+  </button>
+
+  <!-- Edit Modal -->
+  <div id="editModal" class="modal-overlay">
+    <div class="modal-card scale-in">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-pen-to-square"></i> Edit Task</h3>
+        <button id="closeModalBtn" class="icon-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <label class="field-full">
+          <span>Task title</span>
+          <input type="text" id="editTitle" maxlength="120" />
+        </label>
+        <div class="input-extras">
+          <label class="field">
+            <span>Due date</span>
+            <input type="date" id="editDate" />
+          </label>
+          <label class="field">
+            <span>Category</span>
+            <select id="editCategory">
+              <option value="Personal">Personal</option>
+              <option value="Work">Work</option>
+              <option value="Study">Study</option>
+              <option value="Health">Health</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Priority</span>
+            <select id="editPriority">
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="cancelEditBtn" class="btn-ghost">Cancel</button>
+        <button id="saveEditBtn" class="btn-primary ripple"><i class="fa-solid fa-check"></i> Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div id="deleteModal" class="modal-overlay">
+    <div class="modal-card modal-small scale-in">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-triangle-exclamation"></i> Delete Task?</h3>
+      </div>
+      <div class="modal-body">
+        <p class="confirm-text">This action can't be undone. Are you sure you want to delete this task?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="cancelDeleteBtn" class="btn-ghost">Cancel</button>
+        <button id="confirmDeleteBtn" class="btn-danger ripple"><i class="fa-solid fa-trash"></i> Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confetti canvas -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
